@@ -5,6 +5,7 @@ import string
 REGEX_EMAIL = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
 REGEX_ONLY_LETTERS = '[A-Za-z]'
 
+
 def first_name_generator():
     first_name_list = [
         'Emma', 'Jack', 'Mary', 'Jacob', 'Jennifer', 'Thomas', 'Elizabeth', 'Robert', 'Amelia', 'Charlie', 'Lily',

@@ -11,18 +11,6 @@ class TestSmoke:
     def setup_class(cls):
         cls.api_client = ApiClient()
 
-    @pytest.fixture()
-    def generate_user(self):
-        return User.generate_random()
-
-    @pytest.fixture()
-    def status_code_ok(self):
-        return 200
-
-    @pytest.fixture()
-    def status_code_not_found(self):
-        return 404
-
     def test_check_that_user_exist(self, status_code_ok):
         response = self.api_client.users.get_user(user_id=7, status_code=status_code_ok)
         assert response.user_id == 7
