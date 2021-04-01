@@ -1,0 +1,6 @@
+.idea
+venv
+**/__pycache__/
+**/*sandbox.py
+*.DS_Store
+*.pyc
