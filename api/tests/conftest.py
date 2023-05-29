@@ -15,3 +15,7 @@ def status_code_ok():
 @pytest.fixture()
 def status_code_not_found():
     return 404
+
+@pytest.fixture()
+def check_git_source():
+    return 'OK'
