@@ -7,6 +7,21 @@ from marshmallow import ValidationError
 
 from api.entities.json_helper import JsonHelper
 
+"""
+    def update_pdf(
+        self,
+        config_url,
+        dto: UpdatePDFRequest,
+        files: list[tuple[str, tuple[str, BinaryIO, str]]],
+    ):
+        return requests.post(
+            data={"data": f"{JsonHelper.to_json(dto)}"},
+            files=files,
+            url=f"{config_url}/{self.endpoint}/update_pdf",
+            verify=False,
+        )
+"""
+
 
 class ApiClient:
     def __init__(
