@@ -21,15 +21,17 @@ def step_prepare_product(
 
 
 def step_add_product(
+        basic_url,
         api_client: ApiClient,
         product: Product
 ) -> Product:
-    return api_client.post_product(product=product)
+    return api_client.post_product(product=product, basic_url=basic_url)
 
 
 def step_update_product(
+        basic_url,
         api_client: ApiClient,
         product: Product,
         product_id
 ) -> Product:
-    return api_client.put_product(product=product, id=product_id)
+    return api_client.put_product(product=product, id=product_id, basic_url=basic_url)

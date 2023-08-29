@@ -10,3 +10,4 @@ class Configurator:
 
         #API
         self.BASE_URL = config.get('api', 'base_url')
+        self.TEST_URL = config.get('api', 'test_url')

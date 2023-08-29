@@ -9,7 +9,7 @@ from new_api.models.product import Product
 @dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class Products:
-    products: Dict[Product]
+    products: Any
     total: int
     skip: int
     limit: int
