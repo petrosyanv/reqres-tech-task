@@ -10,11 +10,14 @@ from new_api.models.products import Products
 
 
 class ApiClient:
-    def get_products(self, basic_url):
-        return requests.get(url=f"{basic_url}/products", verify=False).json()
 
-    def get_product(self, basic_url, id: int):
-        return requests.get(url=f"{basic_url}/products/{id}", verify=False).json()
+    def get_products(self, basic_url) -> Products | Any:
+        response = requests.get(url=f"{basic_url}/products", verify=False)
+        return Products.from_dict(response.json())
+
+    def get_product(self, basic_url, id: int) -> Product | Any:
+        response = requests.get(url=f"{basic_url}/products/{id}", verify=False)
+        return Product.from_dict(response.json())
 
     def get_categories(self, basic_url):
         return requests.get(url=f"{basic_url}/products/categories", verify=False)
