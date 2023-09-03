@@ -16,7 +16,6 @@ def step_prepare_product(
         brand="Apple",
         category="smartphones",
     )
-    data.update(kwargs)
     return data
 
 

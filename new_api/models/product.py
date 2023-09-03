@@ -9,11 +9,11 @@ class Product:
     title: str
     description: str
     price: int
-    discount_percentage: float
     rating: float
     stock: int
     brand: str
     category: str
+    discount_percentage: Optional[float] = field(default=None)
     id: Optional[int] = field(default=None)
     thumbnail: Optional[str] = field(default=None)
     images: Optional[Any] = field(default=None)

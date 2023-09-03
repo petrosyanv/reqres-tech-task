@@ -25,12 +25,14 @@ class ApiClient:
     def get_category(self, basic_url, category: str):
         return requests.get(url=f"{basic_url}/products/category/{category}", verify=False)
 
-    def post_product(self, basic_url, product: Product):
-        return requests.post(
-            data={"data": f"{JsonHelper.to_json(product)}"},
+    def post_product(self, basic_url, product: Product) -> Product | Any:
+        response = requests.post(
+            headers={'Content-Type': 'application/json'},
+            data=JsonHelper.to_json(product),
             verify=False,
             url=f"{basic_url}/products/add"
         )
+        return Product.from_dict(response.json())
     def put_product(self, basic_url, product: Product, id: int):
         return requests.put(
             url=f"{basic_url}/products/{id}", verify=False,
