@@ -8,7 +8,7 @@ from marshmallow import ValidationError
 from api.entities.json_helper import JsonHelper
 
 
-class ApiClient:
+class ApiClientNew:
     def __init__(
         self, url: str, headers: Dict = None, timeout: float = None, ssl: bool = True
     ):
