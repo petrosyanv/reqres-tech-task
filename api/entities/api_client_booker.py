@@ -17,3 +17,4 @@ class ApiClientBooker(ApiClientNew):
     def get_auth_token(self, dto: Any) -> Any:
         return super()._post("auth", dto=dto)
 
+#add new client enpoints
