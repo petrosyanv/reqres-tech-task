@@ -243,3 +243,4 @@ class ApiClientNew:
             url = url[:-1]
 
         return url
+

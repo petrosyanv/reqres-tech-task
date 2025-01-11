@@ -1,20 +1,56 @@
+import json
+
 from api.entities.api_client_new import ApiClientNew
 from typing import Dict, Any
+import requests
+
+from models.model_booker import Booking
+
 
 class ApiClientBooker(ApiClientNew):
 
-    def __init__(self, url: str, headers: Dict = None, timeout: float = None, ssl: bool = True
-    ):
-        if headers is None:
-            headers = {}
-            headers.update(
-                {
-                    "Content- Type": "application/json"
-                }
-            )
-        super().__init__(url=f"{url}", headers=headers, timeout=timeout, ssl=ssl)
+    def __init__(self, url: str, timeout: float = None, ssl: bool = False):
+        super(ApiClientBooker, self).__init__(url=f"{url}", timeout=timeout, ssl=ssl)
 
-    def get_auth_token(self, dto: Any) -> Any:
-        return super()._post("auth", dto=dto)
+    def get_booking(self):
+        return super()._get(
+            endpoint='booking',
+            headers={'Content-Type': 'application/json'}
+        )
+    def get_bookinglds(self, id: int):
+        return super()._get(
+            endpoint=f"booking/{id}",
+            headers={'Content-Type': 'application/json'},
+        )
 
-#add new client enpoints
+    def post_booking(self, dto: Booking):
+        return super()._post(
+            endpoint='booking',
+            dto=dto,
+            headers={'Content-Type': 'application/json'},
+        )
+
+    def put_booking(self, dto: Booking, id: int):
+        return super()._put(
+            endpoint=f"booking/{id}",
+            dto=dto,
+            headers={'Content-Type': 'application/json'},
+            expected_type=dict
+        )
+
+    def patch_booking(self, dto: Booking, id: int):
+        return super()._patch(
+            endpoint=f"booking/{id}",
+            dto=dto,
+            headers={'Content-Type': 'application/json'},
+            expected_type=dict
+        )
+
+    def delete_booking(self, id: int):
+        return super()._delete(
+            endpoint=f"booking/{id}",
+            headers={'Content-Type': 'application/json'},
+            expected_type=dict
+        )
+
+
