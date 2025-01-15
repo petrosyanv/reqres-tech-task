@@ -17,10 +17,12 @@ class ApiClientBooker(ApiClientNew):
             endpoint='booking',
             headers={'Content-Type': 'application/json'}
         )
-    def get_bookinglds(self, id: int):
+    def get_booking_ids(self, id: int) -> Booking:
         return super()._get(
             endpoint=f"booking/{id}",
             headers={'Content-Type': 'application/json'},
+            expected_type=Booking,
+            error_type=Booking
         )
 
     def post_booking(self, dto: Booking):
@@ -35,7 +37,7 @@ class ApiClientBooker(ApiClientNew):
             endpoint=f"booking/{id}",
             dto=dto,
             headers={'Content-Type': 'application/json'},
-            expected_type=dict
+            expected_type=Dict
         )
 
     def patch_booking(self, dto: Booking, id: int):
@@ -43,14 +45,14 @@ class ApiClientBooker(ApiClientNew):
             endpoint=f"booking/{id}",
             dto=dto,
             headers={'Content-Type': 'application/json'},
-            expected_type=dict
+            expected_type=Dict
         )
 
     def delete_booking(self, id: int):
         return super()._delete(
             endpoint=f"booking/{id}",
             headers={'Content-Type': 'application/json'},
-            expected_type=dict
+            expected_type=Dict
         )
 
 

@@ -3,6 +3,7 @@ from typing import Optional, Any, Dict
 from dataclasses_json import config, dataclass_json
 
 
+@dataclass
 class Bookingdates:
     checkin: str
     checkout: str
@@ -14,6 +15,5 @@ class Booking:
     lastname: str
     totalprice: int
     depositpaid: bool
-    bookingdates: Dict
-
-    additionalneeds: str
+    bookingdates: Bookingdates
+    additionalneeds: Optional[str]= field(default=None)

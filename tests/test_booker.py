@@ -8,5 +8,5 @@ class TestBooker:
     api_client = ApiClientBooker(url=config.BOOKER_URL)
 
     def test_all_ids(self):
-        response = self.api_client.get_booking()
-        print(response)
+        response = self.api_client.get_booking_ids(1)
+
