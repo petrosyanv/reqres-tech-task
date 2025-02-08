@@ -11,3 +11,4 @@ class Configurator:
         #API
         self.BASE_URL = config.get('api', 'base_url')
         self.BOOKER_URL = config.get(section='api', option='booker_url')
+        self.FAKER_URL = config.get(section='api', option='faker_url')

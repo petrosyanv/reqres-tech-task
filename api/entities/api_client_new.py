@@ -19,14 +19,14 @@ class ApiClientNew:
 
     def _get(
         self,
-        endpoint: str = "",
-        dto: Any = None,
-        expected_type: Optional[Any] = None,
-        error_type: Optional[Any] = None,
-        headers: Optional[Dict] = None,
-        is_form_data: bool = False,
-        query_params: Optional[Any] = None,
-        ignore_parse_exception: bool = False,
+            endpoint: str = "",
+            dto: Any = None,
+            expected_type: Optional[Any] = None,
+            error_type: Optional[Any] = None,
+            headers: Optional[Dict] = None,
+            is_form_data: bool = False,
+            query_params: Optional[Any] = None,
+            ignore_parse_exception: bool = False,
     ) -> Any:
         return self._send_request(
             method=requests.get,

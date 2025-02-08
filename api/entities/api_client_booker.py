@@ -4,7 +4,7 @@ from api.entities.api_client_new import ApiClientNew
 from typing import Dict, Any
 import requests
 
-from models.model_booker import Booking
+from models.model_booker import Booking, UpdateBooking, PatchBooking
 
 
 class ApiClientBooker(ApiClientNew):
@@ -29,6 +29,8 @@ class ApiClientBooker(ApiClientNew):
         return super()._post(
             endpoint='booking',
             dto=dto,
+            expected_type=UpdateBooking,
+            error_type=UpdateBooking,
             headers={'Content-Type': 'application/json'},
         )
 
@@ -37,7 +39,8 @@ class ApiClientBooker(ApiClientNew):
             endpoint=f"booking/{id}",
             dto=dto,
             headers={'Content-Type': 'application/json'},
-            expected_type=Dict
+            expected_type=Booking,
+            error_type=Booking
         )
 
     def patch_booking(self, dto: Booking, id: int):
@@ -45,14 +48,15 @@ class ApiClientBooker(ApiClientNew):
             endpoint=f"booking/{id}",
             dto=dto,
             headers={'Content-Type': 'application/json'},
-            expected_type=Dict
+            expected_type=PatchBooking,
+            error_type=PatchBooking
         )
 
     def delete_booking(self, id: int):
         return super()._delete(
             endpoint=f"booking/{id}",
             headers={'Content-Type': 'application/json'},
-            expected_type=Dict
         )
+
 
 
